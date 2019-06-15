@@ -126,7 +126,7 @@ const graduates = [
 //const universities = [];
 //console.log(universities);
 
-const universities = graduates.map(function(item) {
+const universities = graduates.map(item => {
   return item.university;
 });
 universities.sort();
@@ -140,23 +140,16 @@ Name email@example.com
 
 Log the result of your new array. */
 const contactInfo = [];
-let i = 0;
-graduates.forEach(() => {
-  contactInfo.push(graduates[i]["first_name"] + " " + graduates[i]["email"]);
 
-  ++i;
-});
+graduates.forEach(graduate =>
+  contactInfo.push(graduate.first_name + " " + graduate.email)
+);
+
 console.log("First-name and Email", contactInfo);
 
 /* Request 3: Find out how many universities have the string "Uni" included in their name. Create a new array called uni that contains them all. Log the result. */
-const uni = [];
-let j = 0;
-graduates.forEach(() => {
-  if (graduates[j].university.indexOf("Uni") >= 0) {
-    uni.push(graduates[j].university);
-  }
-  ++j;
-});
+
+const uni = graduates.filter(graduate => graduate.university.includes("Uni"));
 console.log("Uni", uni);
 
 // ==== ADVANCED Array Methods ====
@@ -232,21 +225,14 @@ The zoo wants to display both the scientific name and the animal name in front o
 
 */
 const animalNames = [];
-let k = 0;
-zooAnimals.forEach(() => {
-  animalNames.push(
-    "Name: " +
-      zooAnimals[k]["animal_name"] +
-      ", " +
-      "Scientific:" +
-      " " +
-      zooAnimals[k]["scientific_name"]
-  );
 
-  ++k;
+zooAnimals.forEach(item => {
+  return animalNames.push(
+    "Name:" + item.animal_name + "  " + "Sceintific:" + item.scientific_name
+  );
 });
 
-console.log(animalNames);
+console.log("Animal and Sceintific Names", animalNames);
 
 /* Request 2: .map()    
 
